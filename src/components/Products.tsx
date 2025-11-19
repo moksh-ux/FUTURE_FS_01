@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 import product1 from "@/assets/product-1.jpg";
 import product2 from "@/assets/product-2.jpg";
 import product3 from "@/assets/product-3.jpg";
@@ -29,6 +31,17 @@ const products = [
 ];
 
 const Products = () => {
+  const { addToCart } = useCart();
+  const { toast } = useToast();
+
+  const handleAddToCart = (product: typeof products[0]) => {
+    addToCart(product);
+    toast({
+      title: "Added to cart!",
+      description: `${product.name} has been added to your cart.`,
+    });
+  };
+
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
@@ -66,6 +79,7 @@ const Products = () => {
                   <Button 
                     variant="default"
                     className="bg-gradient-to-r from-primary to-accent hover:shadow-glow"
+                    onClick={() => handleAddToCart(product)}
                   >
                     Add to Cart
                   </Button>

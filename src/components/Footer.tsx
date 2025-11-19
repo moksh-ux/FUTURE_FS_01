@@ -52,7 +52,8 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-background/20 pt-8 text-center text-background/50">
-          <p>&copy; 2025 Nike, Inc. All Rights Reserved. AI-Powered Rebrand by Lovable</p>
+          <p>&copy; 2025 Nike, Inc. All Rights Reserved.</p>
+          <p className="mt-2">Made by <span className="text-gradient-secondary font-semibold">Moksh Tyagi</span></p>
         </div>
       </div>
     </footer>
